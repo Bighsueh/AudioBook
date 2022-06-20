@@ -1,0 +1,72 @@
+﻿@using AudioBook.Models;
+@{
+    ViewBag.Title = "Index";
+    List<table_files> table_files = ViewBag.table_files;
+    List<table_page_content> table_page_contents = ViewBag.table_page_content;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int no = 1;
+}
+
+<!--
+    Content Here
+-->
+@Html.Partial("_CreateFile")
+@Html.Partial("_EditFile")
+<div class="content">
+    <div class="container">
+        <div class="mt-3">
+            <div class="mx-2 row flex-nowrap">
+                <h4 class="col">檔案管理系統</h4>
+                <div class="col-4 row">
+                    <button type="button" class="col mx-2 btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#create_file_modal">
+                        新增檔案
+                    </button>
+                    <a id="btn-edit-file" class="col mx-2 btn btn-outline-secondary">
+                        編輯/刪除檔案
+                    </a>
+                </div>
+            </div>
+            <div class="mt-3">
+                <table class="table">
+                    <thead>
+                        <tr class="col">
+                            <th class="col-2">#</th>
+                            <th class="col-3">檔案名稱</th>
+                            <th class="col-3">檔案類型</th>
+                            <th class="col-6">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (table_page_content row in table_page_contents)
+                            {
+                                <tr>
+                                    <td>@(no++)</td>
+                                    <td>@row.content_name</td>
+                                    <td>@row.content_type</td>
+                                    <td class="detail-columns">
+                                        @*@Html.ActionLink("查看詳細資訊", "PageList", new { file_id = row.file_id }, new { @class = "btn btn-outline-dark" })*@
+                                        <a class="content_id" hidden>@row.content_id</a>
+                                        <a class="btn btn-outline-secondary btn-edit-file" data-bs-toggle="modal" data-bs-target="#edit_file_modal">
+                                            編輯檔案
+                                        </a>
+                                    </td>
+                                    <td class="d-none delete-columns">
+                                        <a class="content_id" hidden>@row.content_id</a>
+                                        <a class="btn btn-outline-danger btn-delete-file">
+                                            刪除檔案
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--file_list.js-->
+<script src="~/Scripts/file/file_list.js"></script>
+

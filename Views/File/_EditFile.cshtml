@@ -1,0 +1,49 @@
+﻿<div class="modal" tabindex="-1" id="edit_file_modal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edit_file_modal_title">編輯</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row form-group">
+                        <label for="edit_file_title" class="col-sm-3 col-5 ">檔案名稱</label>
+                        <input class="form-control col-sm-8 col-7" id="edit_content_name" type="text"/>
+                    </div>
+                    <div class="row form-group">
+                        <label for="edit_file_type" class="col-sm-3 col-5 ">檔案類型</label>
+                        <input class="form-control col-sm-8 col-7" id="edit_file_type" type="text" readonly/>
+                    </div>
+                    <div class="row form-group type_image">
+                        <img src="" class="img-fluid" id="preview_img"/>
+                        <label for="edit_upload_image" class="col-sm-3 col-5 ">圖案上傳</label>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="edit_upload_image" type="file"/>
+                    </div>
+
+                    <div class="row form-group type_audio d-none">
+                        <label for="edit_slow_audio" class="col-sm-3 col-5 ">慢速音檔</label>
+                        <button class="btn btn-outline-primary" id="preview_slow_audio">播放慢速音檔</button>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="edit_slow_audio" type="file"/>
+                    </div>
+                    <div class="row form-group type_audio d-none">
+                        <label for="edit_english_audio" class="col-sm-3 col-5 ">全英英檔</label>
+                        <button class="btn btn-outline-primary" id="preview_english_audio">播放全英音檔</button>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="edit_english_audio" type="file"/>
+                    </div>
+                    <div class="row form-group type_audio d-none">
+                        <label for="edit_bilingual_audio" class="col-sm-3 col-5 ">中英英檔</label>
+                        <button class="btn btn-outline-primary" id="preview_bilingual_audio">播放中英音檔</button>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="edit_bilingual_audio" type="file"/>
+                    </div>
+                    <a hidden id="edit_content_id"></a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancel_edit" class="btn btn-outline-danger" data-bs-dismiss="modal">取消編輯</button>
+                <button type="button" id="btn_submit_edit" class="btn btn-outline-success">上傳欲修改的書籍</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/file/edit_file.js"></script>

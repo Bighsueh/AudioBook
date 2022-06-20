@@ -1,0 +1,31 @@
+﻿<div class="modal" tabindex="-1" id="create_book_modal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create_book_modal_title">新增書籍</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row form-group">
+                        <label for="create_book_title" class="col-sm-3 col-5 ">書籍名稱</label>
+                        <input class="form-control col-sm-8 col-7" id="create_book_title" type="text" />
+                    </div>
+                    <div class="row form-group">
+                        <label for="create_book_content" class="col-sm-3 col-5 ">書籍說明</label>
+                        <input class="form-control col-sm-8 col-7" id="create_book_content" type="text" />
+                    </div>
+                    <div class="row form-group">
+                        <label for="create_upload_image" class="col-sm-3 col-5 ">書籍封面</label>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="create_upload_image" type="file" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancel_create" class="btn btn-outline-danger" data-bs-dismiss="modal">取消新增</button>
+                <button type="button" id="btn_submit_create" class="btn btn-outline-success">上傳預新增的書籍</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/book/create_book.js"></script>

@@ -1,0 +1,47 @@
+﻿<div class="modal" tabindex="-1" id="create_file_modal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create_file_modal_title">新增檔名</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row form-group">
+                        <label for="create_file_title" class="col-sm-3 col-5 ">檔案類型</label>
+                        <select class="form-select" id="select_file_type">
+                            @*<option value="movie">影片</option>*@
+                            <option value="image">圖片</option>
+                            <option value="audio">音檔</option>
+                        </select>
+                    </div>
+                    <div class="row form-group">
+                        <label for="create_file_title" class="col-sm-3 col-5 ">檔名名稱</label>
+                        <input class="form-control col-sm-8 col-7" id="create_file_title" type="text" />
+                    </div>
+                    <div class="row form-group type_image">
+                        <label for="create_upload_image" class="col-sm-3 col-5 ">圖案上傳</label>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="create_upload_image" type="file" />
+                    </div>
+                    <div class="row form-group type_audio d-none">
+                        <label for="create_slow_audio" class="col-sm-3 col-5 ">慢速音檔</label>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="create_slow_audio" type="file" />
+                    </div>
+                    <div class="row form-group type_audio d-none">
+                        <label for="create_english_audio" class="col-sm-3 col-5 ">全英英檔</label>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="create_english_audio" type="file" />
+                    </div>
+                    <div class="row form-group type_audio d-none">
+                        <label for="create_bilingual_audio" class="col-sm-3 col-5 ">中英英檔</label>
+                        <input class="form-control col-sm-8 col-7 form-control-file" id="create_bilingual_audio" type="file" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancel_create" class="btn btn-outline-danger" data-bs-dismiss="modal">取消新增</button>
+                <button type="button" id="btn_submit_create" class="btn btn-outline-success">上傳預新增的檔名</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/file/create_file.js"></script>
