@@ -230,10 +230,10 @@ namespace AudioBook.Controllers
         }
         
         //開啟詳細頁面設定頁面
-        public ActionResult PageDetail(int page_id)
+        public ActionResult PageDetail(int page_id = 0)
         {
             
-            return View();
+            return View("PageDetail");
         }
     }
 }
