@@ -223,9 +223,17 @@ namespace AudioBook.Controllers
 
         public string CreatePage(int book_id)
         {
-            string sql_exc = dbPagesManager.InsertTable(book_id);
+            string default_image_path = "../Content/image/empty_page.jpg";
+            string sql_exc = dbPagesManager.InsertTable(book_id,default_image_path);
 
             return sql_exc;
+        }
+        
+        //開啟詳細頁面設定頁面
+        public ActionResult PageDetail(int page_id)
+        {
+            
+            return View();
         }
     }
 }

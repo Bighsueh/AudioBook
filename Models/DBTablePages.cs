@@ -43,10 +43,9 @@ namespace AudioBook.Models
             return pages;
         }
 
-        public string InsertTable(int book_id)
+        public string InsertTable(int book_id,string image_path="")
         {
             string page_num = "";
-            string image_path = "";
             string page_title = "";
             string page_content = "";
 
