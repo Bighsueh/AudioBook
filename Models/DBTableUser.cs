@@ -152,5 +152,79 @@ namespace AudioBook.Models
 
             return list_users;
         }
+
+        //新增學校角色
+        public string CreateGroup(string group_name, string group_content)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnStr);
+            String sql_query = String.Format("INSERT INTO schools(school_name,school_content)VALUES('{0}','{1}')", group_name, group_content);
+
+            SqlCommand sqlCommand = new SqlCommand(sql_query);
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            sqlConnection.Close();
+
+            return "success";
+        }
+        
+        //取得欲修改資料Group
+        public List<list_user_group> GetGroupInfo(int group_id)
+        {
+            List<list_user_group> list_user_groups = new List<list_user_group>();
+            SqlConnection sqlConnection = new SqlConnection(ConnStr);
+            String sql_query = String.Format("SELECT * FROM schools WHERE school_id={0}",group_id);
+
+            SqlCommand sqlCommand = new SqlCommand(sql_query);
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    list_user_group list_user_group = new list_user_group
+                    {
+                        group_id = reader.GetInt32(reader.GetOrdinal("school_id")),
+                        group_name = reader.GetString(reader.GetOrdinal("school_name")),
+                        group_content = reader.GetString(reader.GetOrdinal("school_content")),
+                    };
+                    list_user_groups.Add(list_user_group);
+                }
+            }
+
+            sqlConnection.Close();
+
+            return list_user_groups;
+        }
+        
+        public string UpdateGroupInfo(int group_id, string group_name = "", string group_content = "")
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnStr);
+            String sql_query = String.Format(
+                "UPDATE schools SET school_name = '{0}', school_content = '{1}'WHERE school_id = '{2}'",
+                group_name, group_content, group_id);
+            SqlCommand sqlCommand = new SqlCommand(sql_query);
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            sqlConnection.Close();
+
+            return "Update_Success";
+        }
+        
+        public string DeleteRow(int group_id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnStr);
+            String sql_query = String.Format("DELETE FROM schools WHERE school_id = {0}", group_id);
+            
+            SqlCommand sqlCommand = new SqlCommand(sql_query);
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            sqlConnection.Close();
+
+            return "Delete_Success";
+        }
     }
 }

@@ -177,11 +177,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\page_list\page_list.js" />
+    <Content Include="Scripts\User\User.js" />
     <Content Include="Views\Book\PageDetail.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\User\GroupDetail.cshtml" />
     <Content Include="Views\User\GroupList.cshtml" />
+    <Content Include="Views\User\_CreateGroup.cshtml" />
+    <Content Include="Views\User\_EditGroup.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

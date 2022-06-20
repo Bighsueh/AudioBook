@@ -3,22 +3,22 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    List<list_user_group> user_group = ViewBag.listgroup ;
+    List<list_user_group> user_group = ViewBag.listgroup;
     int no = 1;
 }
 
 <!--
-    Content Here
+Content Here
 -->
-@*Html.Partial("_CreateBook")
-@Html.Partial("_EditBook")*@
+@Html.Partial("_CreateGroup")
+@Html.Partial("_EditGroup")
 <div class="content">
     <div class="container">
         <div class="mt-3">
             <div class="mx-2 row flex-nowrap">
                 <h4 class="col">使用者管理系統</h4>
                 <div class="col-4 row">
-                    <button type="button" class="col mx-2 btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#create_book_modal">
+                    <button type="button" class="col mx-2 btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#create_user_group">
                         新增群組
                     </button>
                     <a id="btn-edit-book" class="col mx-2 btn btn-outline-secondary">
@@ -29,36 +29,36 @@
             <div class="mt-3">
                 <table class="table">
                     <thead>
-                        <tr class="col">
-                            <th class="col-2">#</th>
-                            <th class="col-3">群組名稱</th>
-                            <th class="col-3">群組說明</th>
-                            <th class="col-6">操作</th>
-                        </tr>
+                    <tr class="col">
+                        <th class="col-2">#</th>
+                        <th class="col-3">群組名稱</th>
+                        <th class="col-3">群組說明</th>
+                        <th class="col-6">操作</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @{
-                            foreach (list_user_group row in user_group)
-                            {
-                                <tr>
-                                    <td>@(no++)</td>
-                                    <td>@row.group_name</td>
-                                    <td>@row.group_content</td>
-                                    <td class="detail-columns">
-                                        @Html.ActionLink("查看詳細資訊", "GroupDetail", new { group_id = row.group_id ,group_name = row.group_name }, new { @class = "btn btn-outline-dark" })
-                                    </td>
-                                    <td class="d-none delete-columns">
-                                        <a class="group_id" hidden>@row.group_id</a>
-                                        <a class="btn btn-outline-secondary btn-edit-book" data-bs-toggle="modal" data-bs-target="#edit_book_modal">
-                                            編輯群組
-                                        </a>
-                                        <a class="btn btn-outline-danger btn-delete-book">
-                                            刪除群組
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
+                    @{
+                        foreach (list_user_group row in user_group)
+                        {
+                            <tr>
+                                <td>@(no++)</td>
+                                <td>@row.group_name</td>
+                                <td>@row.group_content</td>
+                                <td class="detail-columns">
+                                    @Html.ActionLink("查看詳細資訊", "GroupDetail", new { group_id = row.group_id, group_name = row.group_name }, new { @class = "btn btn-outline-dark" })
+                                </td>
+                                <td class="d-none delete-columns">
+                                    <a class="group_id" hidden>@row.group_id</a>
+                                    <a class="btn btn-outline-secondary btn-edit-group" data-bs-toggle="modal" data-bs-target="#edit_user_group">
+                                        編輯群組
+                                    </a>
+                                    <a class="btn btn-outline-danger btn-delete-group">
+                                        刪除群組
+                                    </a>
+                                </td>
+                            </tr>
                         }
+                    }
                     </tbody>
                 </table>
             </div>
@@ -66,5 +66,4 @@
     </div>
 </div>
 <!--book_list.js-->
-<script src="~/Scripts/book/book_list.js"></script>
-
+<script src="~/Scripts/User/User.js"></script>
