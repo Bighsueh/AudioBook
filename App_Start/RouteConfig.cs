@@ -16,19 +16,7 @@ namespace AudioBook
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Book", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Book",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Book", action = "Book", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "CreateBook",
-                url: "{controller}/{action}/{book_id}",
-                defaults: new { controller = "Book", action = "CreateBook", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
