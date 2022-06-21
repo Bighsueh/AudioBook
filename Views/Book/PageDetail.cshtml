@@ -1,8 +1,196 @@
 ﻿@using AudioBook.Models;
 @{
     ViewBag.Title = "Book";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_PageDetailLayout.cshtml";
 }
-<div class="content">
+<div class="container-fluid" style="height: 100%;margin: 0px;padding: 0px;">
+        <!-- A fluid container that uses the full witdh -->
+        <!-- navbar 上邊 -->
+        <!-- <div style="height: 10%;">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 100%;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">電子書線上製作</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">其他功能</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div> -->
 
-</div>
+        <!--
+        Header Here
+    -->
+        <header class="p-3 bg-dark text-white" style="height:10%;margin: 0px;padding: 0px;">
+            <div class=" container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-white">有聲書管理系統</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link px-2 text-white dropdown-toggle" id="dropdownUser1"
+                                data-bs-toggle="dropdown" aria-expanded="false">功能列表</a>
+                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+                                <li><a class="dropdown-item" href="#">檔案管理系統</a></li>
+                                <li><a class="dropdown-item" href="#">書籍管理系統</a></li>
+                                <!-- <li><a class="dropdown-item" href="#">123</a></li> -->
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" href="#">登出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="搜尋..."
+                        aria-label="Search" />
+                </form>
+            </div>
+    </div>
+    </header>
+    <!-- /navbar 上邊 -->
+
+    <div class="container-fluid bg-success d-flex row" style="height:90%;margin: 0px;padding: 0px;">
+        <!-- navbar 側邊 -->
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white col-2"
+            style="height:100%;background-color: #202020;">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜尋</button>
+            </div>
+            <hr>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <div class="btn-group " role="group" aria-label="Basic radio toggle button group"
+                        style="width: 100%;">
+                        <div class="btn-group" role="group" aria-label="Basic example" style="width: 100%;">
+                            <button id="btn_sound" type="button" class="btn btn-primary">聲音</button>
+                            <button id="btn_photo" type="button" class="btn btn-primary">圖片</button>
+                            <button id="btn_video" type="button" class="btn btn-primary">影片</button>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+                <li>
+                    <div class="container">
+                        <!-- Content here -->
+                        <div class="row" id="tab_sound" class="">
+                            <!-- tab聲音的內容 -->
+                            <div class="col element_storage">
+                                <figure class="figure">
+                                    <!-- content_type -->
+                                    <p class="content_type" style="display: none;">聲音</p>
+                                    <!-- content_code -->
+                                    <p class="content_code" style="display: none;">content_code</p>
+                                    <!-- obj_path -->
+                                    <img src="food.jpg" class="obj_path figure-img img-fluid rounded" alt="...">
+                                    <!-- content_name -->
+                                    <figcaption class="figure-caption">
+                                        <p class="content_name">food.聲音</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="row" id="tab_photo" class="" style="">
+                            <!-- tab圖片的內容 -->
+                            <div class="col element_storage">
+                                <figure class="figure">
+                                    <a class="img_token" hidden>food.jpg</a>
+                                    <img src="food.jpg" class=" figure-img img-fluid rounded" alt="...">
+                                    <figcaption class="figure-caption">
+                                        <p class="content_name">food.圖片</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="row" id="tab_video" class="" style="">
+                            <!-- tab影片的內容 -->
+                            <div class="col element_storage">
+                                <figure class="figure">
+                                    <a class="img_token" hidden>food.jpg</a>
+                                    <img src="" class=" figure-img img-fluid rounded" alt="...">
+                                    <figcaption class="figure-caption">
+                                        <p class="content_name">food.影片</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <hr>
+            <!--</span>-->
+            <!-- /navbar 側邊 -->
+        </div>
+        <!-- /navbar 側邊 -->
+
+        <!-- 工作區 -->
+        <div class="container-fluid col-10" style="background-color: #ebebeb;height: 100%;">
+            <div class="row" style="padding: 10px;height: 100%;">
+                <div class=" col-1 " style="padding: 10px;height: 100%;">
+                </div>
+                <div class="col-10" style="padding:10px;height: 100%;">
+                    <div class="text-center align-items-center rounded shadow"
+                        style="display: flex; flex-direction: column;justify-content: center;text-align: center;padding:10px;width: 70rem;height: 50rem;background-color: #f5f5f5;">
+                        <div id="map-box" style="position: relative;max-height: 100%;max-width: 100%;">
+                            <!-- <div  class="position-relative" id="father"> -->
+                            <!-- <div class="zoomImage" style="background-image:url(food.jpg)"></div> -->
+                            <!-- <img id="map-image" src="https://i.postimg.cc/25pN0t24/lesson1-1024x720.jpg"
+                                class="figure-img img-fluid rounded align-self-center" style="
+                            width: 100%;
+                            height: auto;
+                            max-height: 100%;  
+                            max-width: 100%; 
+                            top: 0;  
+                            bottom: 0;  
+                            left: 0;  
+                            right: 0;  
+                            margin: auto;
+                            " alt="..."> -->
+                            <img id="map-image" src="https://i.postimg.cc/25pN0t24/lesson1-1024x720.jpg"
+                                class="figure-img img-fluid rounded align-self-center" style="
+                            width: auto;
+                            height: 1080px;
+                            max-height: 100%;  
+                            max-width: 100%; 
+                            " alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 align-self-end mh-100" style="padding: 10px;height: 100%;">
+                    <div class="col align-self-end row" style="height: 100%;">
+                        <button type="button" class="btn btn-success align-self-start">儲存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /工作區 -->
+    </div>
+    </div>
